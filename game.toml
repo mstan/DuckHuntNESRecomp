@@ -1,0 +1,21 @@
+# game.toml — Duck Hunt (NES, Mapper 0 / NROM-128, 16KB PRG mirrored to 32KB, 1 CHR ROM bank)
+
+[game]
+output_prefix = "duck-hunt"
+
+# Inline dispatch: JSR $C35E pops return address to find an inline
+# 2-byte LE address table. Index is in A (pre-shifted by ASL).
+[[inline_dispatch]]
+addr = 0xC35E
+
+# Sound engine indirect JMP targets via RAM pointers $0610-$0613.
+# High byte always $F4 (set at $F581). Three code paths set low bytes.
+[functions]
+fixed = [
+    0xF42E,  # sound engine path 1 — JMP ($0610) target
+    0xF423,  # sound engine path 1 — JMP ($0612) target
+    0xF49B,  # sound engine path 2 — JMP ($0610) target
+    0xF492,  # sound engine path 2 — JMP ($0612) target
+    0xF4EE,  # sound engine path 3 — JMP ($0610) target
+    0xF4E5,  # sound engine path 3 — JMP ($0612) target
+]

@@ -1,0 +1,17 @@
+build/
+*.exe
+*.obj
+*.lib
+*.pdb
+*.ilk
+*.exp
+*.o
+*.a
+# ROM files
+*.NES
+*.nes
+# Generated code (regenerated from ROM + game.toml)
+generated/
+# Symlinked dependencies
+nesrecomp/
+nestopia-core/
