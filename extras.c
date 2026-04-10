@@ -45,23 +45,10 @@ void game_on_init(void) {
 
 void game_on_frame(uint64_t frame_count) {
     (void)frame_count;
-    /* Duck Hunt Zapper detection workaround:
-     * This ROM is a combo SMB/Duck Hunt cart. The game auto-detects the Zapper
-     * on $4017 bit 3 (light sensor) during init state $25=3. Without a real
-     * Zapper, it defaults to SMB mode.
-     *
-     * The light sensor checks the framebuffer brightness, but during init the
-     * framebuffer is black → detection fails. We can't fix this with just the
-     * Zapper simulation because the init renders haven't happened yet.
-     *
-     * Workaround: on early frames (before the state machine completes), force
-     * $1F=0 and $05FE=2 to tell the $25=0 handler to take the Duck Hunt path
-     * ($05FE >= 2 → $25=8 instead of $25=1). */
     if (frame_count < 15) {
-        fprintf(stderr, "[STATE] f=%llu $25=%02X $26=%02X $1F=%02X $24=%02X $08=%02X $09=%02X\n",
+        fprintf(stderr, "[STATE] f=%llu $25=%02X $26=%02X $1F=%02X $24=%02X\n",
                 (unsigned long long)frame_count,
-                g_ram[0x25], g_ram[0x26], g_ram[0x1F], g_ram[0x24],
-                g_ram[0x08], g_ram[0x09]);
+                g_ram[0x25], g_ram[0x26], g_ram[0x1F], g_ram[0x24]);
     }
 }
 
@@ -161,12 +148,6 @@ int game_dispatch_override(uint16_t addr) {
 }
 
 uint8_t game_ram_read_hook(uint16_t pc, uint16_t addr, uint8_t val) {
-    (void)pc;
-    /* Force Duck Hunt mode: the $25=0 handler at $C82B reads $05FE to decide
-     * game mode. $05FE < 2 → SMB ($25=1), $05FE >= 2 → Duck Hunt ($25=8).
-     * On real NES, Nestopia auto-detects the Zapper and enters DH mode via
-     * a different code path. In the recomp, no Zapper → game defaults to SMB.
-     * Hook: when $C82B reads $05FE, return 2 (Duck Hunt). */
     (void)pc; (void)addr;
     return val;
 }
