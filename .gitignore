@@ -15,3 +15,18 @@ generated/
 # Symlinked dependencies
 nesrecomp/
 nestopia-core/
+# Internal dev docs
+CLAUDE.md
+DEBUG.md
+HANDOFF.md
+TCP.md
+instructions.txt
+# Release artifacts
+*.zip
+# Debug images
+*.png
+# Analysis artifacts
+*.csv
+ghdira/
+.mcp.json
+FIRST_MILESTONE.md
