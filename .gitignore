@@ -12,7 +12,8 @@ build/
 *.nes
 # Generated code (regenerated from ROM + game.toml)
 generated/
-# Symlinked dependencies
+# nesrecomp is cloned by setup.sh / setup.bat into this directory.
+# Pinned SHA recorded in nesrecomp.pin and enforced at CMake configure time.
 nesrecomp/
 nestopia-core/
 # Internal dev docs

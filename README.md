@@ -52,8 +52,22 @@ The Zapper light detection is fully simulated — the game's two-phase detection
 Requires Visual Studio 2022 and CMake 3.20+.
 
 ```bash
-git clone --recursive https://github.com/mstan/DuckHuntNESRecomp
+git clone https://github.com/mstan/DuckHuntNESRecomp
 cd DuckHuntNESRecomp
+
+# Windows
+setup.bat
+
+# Linux / macOS
+chmod +x setup.sh && ./setup.sh
+```
+
+This clones [nesrecomp](https://github.com/mstan/nesrecomp) at the exact
+version pinned in `nesrecomp.pin` and links the Nestopia oracle core.
+
+Then build:
+
+```bash
 cmake -S . -B build -G "Visual Studio 17 2022" -A x64
 cmake --build build --config Release
 ```
@@ -71,6 +85,4 @@ This is a **static recompiler**, not an emulator. The original 6502 machine code
 
 ## Known Limitations
 
-- Title screen has minor color issues in the lower half (attribute table timing)
-- Top row tile corruption during gameplay (score display area)
 - Audio is basic (APU register writes are captured but full mixing is work-in-progress)
