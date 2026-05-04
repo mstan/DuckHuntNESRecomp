@@ -34,9 +34,15 @@ void game_on_init(void) {
     g_zapper_x = 128;
     g_zapper_y = 120;
 
-    /* Track $25 and $26 state changes */
+    /* Track $25 and $26 state changes — legacy follower API removed
+     * upstream at nesrecomp commit 69ecd30 ("retire legacy write_bp +
+     * follower + watch_s"). Replacement is rdb_watch_add (TCP-driven).
+     * Disabled for now to unblock the build; re-port when the migration
+     * is done. */
+#if 0
     debug_server_add_follower(0x25, -1);
     debug_server_add_follower(0x26, -1);
+#endif
 
     if (g_run_mode != RUN_MODE_NATIVE && g_rom_path_for_extras) {
         verify_mode_init(g_rom_path_for_extras);
