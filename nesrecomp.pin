@@ -1,6 +1,6 @@
-# nesrecomp.pin — pins this game's expected nesrecomp version.
+# nesrecomp.pin ??? pins this game's expected nesrecomp version.
 # First-time setup: run setup.sh (Linux/macOS) or setup.bat (Windows).
 # To update: change sha, re-run the setup script, commit this file.
 
 branch = audit/cpu-coverage-2026-05
-sha    = 7d394316ba6f74d2ea005f76bc2b9d91cfe77dee
+sha    = 51bbed9900d15a5154686db667e96aecb6fdd000
