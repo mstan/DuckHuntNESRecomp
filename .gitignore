@@ -31,3 +31,8 @@ instructions.txt
 ghdira/
 .mcp.json
 FIRST_MILESTONE.md
+
+# build + release artifacts
+build_release/
+build_debug/
+release/

@@ -23,7 +23,6 @@ add_executable(DuckHuntRecomp
     extras.c
     nes_snapshot.c
     verify_mode.c
-    recomp_stack.c
     generated/duck-hunt_full.c
     generated/duck-hunt_dispatch.c
 )
