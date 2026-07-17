@@ -59,8 +59,4 @@ endif()
 # ---- Pre-boot GUI launcher (recomp-ui / Dear ImGui) ----
 include(${CMAKE_SOURCE_DIR}/recomp-ui/recomp_ui.cmake)
 recomp_target_launcher_ui(DuckHuntRecomp BOXART ${CMAKE_SOURCE_DIR}/boxart.tga)
-if(WIN32)
-    # OpenGL for the ImGui GL3 backend (previously via the RmlUi launcher.cmake).
-    target_link_libraries(DuckHuntRecomp PRIVATE opengl32)
-endif()
 target_compile_definitions(DuckHuntRecomp PRIVATE NESRECOMP_GAME_ZAPPER)

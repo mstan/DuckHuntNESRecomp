@@ -12,8 +12,6 @@ build/
 *.nes
 # Generated code (regenerated from ROM + game.toml)
 generated/
-# nesrecomp is cloned by setup.sh / setup.bat into this directory.
-# Pinned SHA recorded in nesrecomp.pin and enforced at CMake configure time.
 nesrecomp/
 nestopia-core/
 # Internal dev docs
@@ -37,5 +35,4 @@ build_release/
 build_debug/
 release/
 
-# recomp-ui launcher is a junction to the shared checkout (submodule later).
 build_ui/
