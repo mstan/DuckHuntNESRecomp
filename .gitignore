@@ -36,3 +36,7 @@ FIRST_MILESTONE.md
 build_release/
 build_debug/
 release/
+
+# recomp-ui launcher is a junction to the shared checkout (submodule later).
+recomp-ui
+build_ui/
