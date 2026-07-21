@@ -12,6 +12,7 @@ build/
 *.nes
 # Generated code (regenerated from ROM + game.toml)
 generated/
+nesrecomp/
 nestopia-core/
 # Internal dev docs
 CLAUDE.md
@@ -33,3 +34,5 @@ FIRST_MILESTONE.md
 build_release/
 build_debug/
 release/
+
+build_ui/
