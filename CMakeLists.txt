@@ -6,13 +6,6 @@ set(CMAKE_CXX_STANDARD 17)
 
 set(NESRECOMP_ROOT ${CMAKE_SOURCE_DIR}/nesrecomp)
 
-# ---- Nestopia Oracle (optional) ----
-# Set BEFORE including runner.cmake so it picks up the bridge sources.
-option(ENABLE_NESTOPIA_ORACLE "Build with Nestopia emulator oracle for verify mode" ON)
-if(ENABLE_NESTOPIA_ORACLE)
-    set(NESTOPIA_DIR ${CMAKE_SOURCE_DIR}/nestopia-core)
-endif()
-
 include(${NESRECOMP_ROOT}/runner/runner.cmake)
 
 list(APPEND CMAKE_PREFIX_PATH "${NESRECOMP_ROOT}/runner/external/SDL2/cmake")
@@ -36,11 +29,6 @@ target_include_directories(DuckHuntRecomp PRIVATE
 target_link_libraries(DuckHuntRecomp PRIVATE ${SDL2_LIBRARIES})
 
 target_compile_definitions(DuckHuntRecomp PRIVATE RECOMP_STACK_TRACKING)
-
-if(ENABLE_NESTOPIA_ORACLE)
-    target_link_libraries(DuckHuntRecomp PRIVATE nestopia_core)
-    target_compile_definitions(DuckHuntRecomp PRIVATE ENABLE_NESTOPIA_ORACLE)
-endif()
 
 if(WIN32)
     target_link_libraries(DuckHuntRecomp PRIVATE ws2_32)
