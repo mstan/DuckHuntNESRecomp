@@ -1,0 +1,7 @@
+entry_type,addr,bank,status,canonical_addr,canonical_bank
+extra_func,F42E,0,MISSING,,
+extra_func,F423,0,DISCOVERABLE_AS_SECONDARY,F40F,0
+extra_func,F49B,0,MISSING,,
+extra_func,F492,0,AUTO_DISCOVERED_AS_SECONDARY,F40F,0
+extra_func,F4EE,0,AUTO_DISCOVERED,,
+extra_func,F4E5,0,DISCOVERABLE_AS_SECONDARY,F40F,0
