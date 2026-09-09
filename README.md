@@ -96,6 +96,11 @@ This is a **static recompiler**, not an emulator. The original 6502 machine code
 
 - Audio is basic (APU register writes are captured but full mixing is work-in-progress)
 
+## License
+
+PolyForm Noncommercial 1.0.0 — see [`LICENSE`](LICENSE). Third-party
+components retain their own licenses.
+
 ---
 
 <p align="center">
