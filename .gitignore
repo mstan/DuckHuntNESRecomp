@@ -36,3 +36,9 @@ build_debug/
 release/
 
 build_ui/
+
+/build-cycle/
+
+/build-legacy/
+
+/cycle-evidence/

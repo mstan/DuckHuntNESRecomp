@@ -1,6 +1,7 @@
 # game.toml — Duck Hunt (NES, Mapper 0 / NROM-128, 16KB PRG mirrored to 32KB, 1 CHR ROM bank)
 
 [game]
+name = "Duck Hunt"
 output_prefix = "duck-hunt"
 
 # Inline dispatch: JSR $C35E pops return address to find an inline

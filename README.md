@@ -110,3 +110,39 @@ components retain their own licenses.
 <p align="center">
   <a href="https://discord.gg/Ad9BwSzctP"><img src=".github/raid-discord.png" alt="Join the Retro AI Development (R.A.I.D.) Discord" width="200"></a>
 </p>
+
+## Cycle backend migration
+
+This branch defaults to the cycle CPU backend. The existing legacy build is
+available with `-DNESRECOMP_BACKEND=legacy`. Initialize the pinned engine and
+recomp-ui submodules, then build from your original ROM:
+
+```powershell
+cmake -S . -B build-cycle -DNESRECOMP_ROM="C:/path/to/Duck Hunt (World).nes"
+cmake --build build-cycle --config Release
+```
+
+`NESRECOMP_ROOT` and `NESRECOMP_RECOMP_UI` can select other checkouts;
+`NESRECOMP_HOST_COMPILER` can select a prebuilt NESRecomp compiler. The supplied
+`cyc_seeds.txt` covers the tested title and opening gameplay route. Unseen code
+continues on the cycle interpreter, so the profile is a speed aid rather than
+a restriction on play. This build uses NTSC timing for the supplied ROM.
+
+Mouse movement aims the Zapper; left click fires. Aim mapping follows the
+displayed picture through resizing and treats black bars as offscreen.
+Mouse aiming and Crosshair are available in the launcher and Escape menu.
+Their settings are saved in `config.ini [Zapper]`; existing `keybinds.ini`
+choices are imported without changing the legacy file. The crosshair is a
+presentation overlay and cannot count as light detected by the gun.
+
+F8 saves and F9 loads the cycle slot under `saves/*.cycstate`. These states
+include trigger, aim and sensor history. Legacy `.state` files belong to the
+legacy backend; retain them for that build.
+
+Validation on this branch: 1,800-frame native/interpreter parity at all four
+CPU/PPU clock alignments, exact save-state continuation, independent TriCNES
+comparison with the gun detached, actual aimed-hit and offscreen-miss routes,
+window/menu/crosshair/letterbox/settings checks, and both backend builds.
+TriCNES does not implement the Zapper, so gun routes use the cycle interpreter
+comparison plus real gameplay outcomes. Owner playtest is pending; no merge
+has been performed.
