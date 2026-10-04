@@ -144,5 +144,5 @@ CPU/PPU clock alignments, exact save-state continuation, independent TriCNES
 comparison with the gun detached, actual aimed-hit and offscreen-miss routes,
 window/menu/crosshair/letterbox/settings checks, and both backend builds.
 TriCNES does not implement the Zapper, so gun routes use the cycle interpreter
-comparison plus real gameplay outcomes. Owner playtest is pending; no merge
+comparison plus real gameplay outcomes. Owner confirmed crosshairs and firing pass in both titles; no merge
 has been performed.
