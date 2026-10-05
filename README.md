@@ -113,6 +113,11 @@ components retain their own licenses.
 
 ## Cycle backend migration
 
+Default cycle controls: arrows move, Z is A, X is B, Enter is Start and
+Backslash is Select. Escape opens the menu, Tab fast-forwards, and F8/F9
+save/load the cycle state. Use Controls to remap inputs in `config.ini`.
+Older `keybinds.ini` and F5/F6/F7 instructions below apply to the legacy host.
+
 This branch defaults to the cycle CPU backend. The existing legacy build is
 available with `-DNESRECOMP_BACKEND=legacy`. Initialize the pinned engine and
 recomp-ui submodules, then build from your original ROM:
