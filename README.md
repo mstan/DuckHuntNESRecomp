@@ -146,3 +146,8 @@ window/menu/crosshair/letterbox/settings checks, and both backend builds.
 TriCNES does not implement the Zapper, so gun routes use the cycle interpreter
 comparison plus real gameplay outcomes. Owner confirmed crosshairs and firing pass in both titles; no merge
 has been performed.
+
+Cycle Windows builds use `tools/build.ps1 -Rom <original-ROM>`. Create a ROM-free
+ZIP with `tools/make_release.ps1 -Rom <original-ROM>`; `-SkipBuild -BuildDir
+build-cycle` packages an existing production cycle build. Legacy C remains
+available through explicit CMake selection.
